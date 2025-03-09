@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const images = [
   {
-    url: '/slider/image1.jpg',
+    url: '/slider/img_001.jpg',
     title: 'Bem vindo ao nosso Blog',
     description: 'Descubra histórias e insights incríveis'
   },
