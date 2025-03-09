@@ -27,6 +27,12 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Blog API' });
 });
 
+// Update CORS configuration
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
