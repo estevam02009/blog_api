@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ImageSlider from '@/components/ImageSlider';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,31 +27,31 @@ export default function RootLayout({ children }) {
         <div className="min-h-screen bg-gray-100">
           <nav className="bg-white shadow-lg">
             <div className="max-w-7xl mx-auto px-4">
-              <div className="flex justify-between h-16">
-                <div className="flex">
-                  <div className="flex-shrink-0 flex items-center">
-                    <Link href="/" className="text-xl font-bold text-gray-800">
-                      Blog
+              <div className="flex justify-between h-20">
+                <div className="flex items-center space-x-8">
+                  <div className="flex-shrink-0">
+                    <Link href="/" className="text-2xl font-bold text-gray-800">
+                      Toninho Praxedes
                     </Link>
                   </div>
-                  <div className="hidden md:ml-6 md:flex md:space-x-8">
-                    <Link href="/" className="inline-flex items-center px-1 pt-1 text-gray-900">
+                  <div className="hidden md:flex space-x-8">
+                    <Link href="/" className="text-gray-900 hover:text-gray-700 font-medium py-4">
                       Home
                     </Link>
-                    <Link href="/posts" className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-gray-900">
+                    <Link href="/posts" className="text-gray-500 hover:text-gray-900 font-medium py-4">
                       Posts
                     </Link>
-                    <Link href="/categories" className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-gray-900">
-                      Categories
+                    <Link href="/categories" className="text-gray-500 hover:text-gray-900 font-medium py-4">
+                      Categorias
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-center">
-                  <Link href="/login" className="text-gray-500 hover:text-gray-900 px-3 py-2">
+                <div className="flex items-center space-x-4">
+                  <Link href="/login" className="text-gray-500 hover:text-gray-900 font-medium py-4">
                     Login
                   </Link>
-                  <Link href="/register" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-                    Register
+                  <Link href="/register" className="bg-blue-600 text-white px-6 py-2.5 rounded-md hover:bg-blue-700 transition-colors">
+                    Registrar
                   </Link>
                 </div>
               </div>

@@ -1,26 +1,32 @@
-import { apiConfig } from '../config/api';
-
 export const fetchApi = async (endpoint, options = {}) => {
-  const token = localStorage.getItem('token');
+  const apiUrl = 'http://localhost:3001/api';
   
-  const defaultHeaders = {
-    ...apiConfig.headers,
-    ...(token ? { Authorization: `Bearer ${token}` } : {}),
-  };
+  try {
+    const token = localStorage.getItem('token');
+    
+    const response = await fetch(`${apiUrl}${endpoint}`, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        ...(token && { 'Authorization': `Bearer ${token}` }),
+        ...options.headers,
+      },
+    });
 
-  const response = await fetch(`${apiConfig.baseURL}${endpoint}`, {
-    ...options,
-    headers: {
-      ...defaultHeaders,
-      ...options.headers,
-    },
-  });
+    if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+      }
+      const errorText = await response.text();
+      throw new Error(errorText || `Request failed: ${response.status}`);
+    }
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Failed to fetch ${endpoint}:`, error);
+    throw error;
   }
-
-  return data;
 };

@@ -28,7 +28,13 @@ export default function Posts() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Blog Posts</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold">Blog Posts</h1>
+        <Link href="/posts/new" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+          Nova Postagem
+        </Link>
+      </div>
+      
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <Link href={`/posts/${post._id}`} key={post._id}>

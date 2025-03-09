@@ -23,7 +23,7 @@ export default function Register() {
 
   return (
     <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">Criar Conta</h2>
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {error}
@@ -31,7 +31,7 @@ export default function Register() {
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
-          <label className="block text-gray-700 mb-2">Username</label>
+          <label className="block text-gray-700 mb-2">Usuário</label>
           <input
             {...register('username', { required: 'Username is required' })}
             type="text"
@@ -42,7 +42,7 @@ export default function Register() {
           )}
         </div>
         <div>
-          <label className="block text-gray-700 mb-2">Name</label>
+          <label className="block text-gray-700 mb-2">Nome Completo</label>
           <input
             {...register('name', { required: 'Name is required' })}
             type="text"
@@ -64,7 +64,7 @@ export default function Register() {
           )}
         </div>
         <div>
-          <label className="block text-gray-700 mb-2">Password</label>
+          <label className="block text-gray-700 mb-2">Senha</label>
           <input
             {...register('password', { required: 'Password is required' })}
             type="password"
@@ -78,7 +78,7 @@ export default function Register() {
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
         >
-          Register
+          Criar Conta
         </button>
       </form>
     </div>
